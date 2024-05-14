@@ -1,0 +1,42 @@
+{% load static %}
+
+{% include 'header.html' %}
+<div class="container_1"> <a href="{% url 'index' %}" class="a">Главная </a> <img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'teachers' %}" class="a">Учителя и ученики</a></div>
+
+        <!-- events -->
+        <div class="container_1">
+            <div class="tags_h1">Учителя</div>
+            <div class="event_cards">
+                
+                {% for i in teachers %}
+                <div class=" exam_card" style="width: 18rem;">
+                    <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title exam_h5">{{i.name}}</h5>
+                        <p class="event_p">
+                            {{i.paragraf}}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="tags_h1">Ученики</div>
+            <div class="event_cards">
+                
+                {% for i in students %}
+                <div class=" exam_card" style="width: 18rem;">
+                    <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title exam_h5">{{i.name}}</h5>
+                        <p class="event_p">
+                            {{i.paragraf}}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+
+{% include 'footer.html' %}

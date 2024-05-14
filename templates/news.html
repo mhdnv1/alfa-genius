@@ -1,0 +1,27 @@
+{% load static %}
+
+{% include 'header.html' %}
+<div class="container_1"> <a href="{% url 'index' %}" class="a">Главная </a> <img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'news' %}" class="a">Новости</a></div>
+
+    <!-- news -->
+    <div class="container_1">
+        <div class="tags_h1">Новости школы</div>
+        <div class="new_cards">
+            {% for i in new %}
+            <div class="new_card" style="width: 18rem;">
+                <div class="new_body">
+                    <h5 class="card-title new_h5">{{i.news_h1}}</h5>
+                    <p class="new_p">
+                       {{i.news_p}}
+                    </p>
+                    <button class="tag_buttons"><a class="buttons" href="{% url 'new_card' i.id %}">Подробнее</a></button>
+                </div>
+            </div>
+        {% endfor %}
+        
+        </div>
+    </div>
+    
+
+{% include 'footer.html' %}

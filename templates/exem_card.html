@@ -1,0 +1,22 @@
+{% load static %}
+
+{% include 'header.html' %}
+<div class="container_1"><img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'index' %}" class="a">Главная </a> </div>
+<div class="container_1">
+<div class=" exam_card" style="width: 16rem;">
+    <img src="{{exam.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title exam_h5">{{exam.exams_h1}}</h5>
+        <ul style="margin: 0%;" class="exam_ul">
+            <li class="exam_ul_li">{{exam.exam_li1}}</li>
+            <li class="exam_ul_li">{{exam.exam_li2}}</li>
+            <li class="exam_ul_li">{{exam.exam_li3}}</li>
+            <p style="width: 90vw;"  class="event_p">{{exam.description}}</p>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+{% include 'footer.html' %}

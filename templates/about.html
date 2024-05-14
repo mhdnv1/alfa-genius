@@ -1,0 +1,23 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+    <div class="container_1"> <a href="{% url 'index' %}" class="a">Главная </a> <img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'exam' %}" class="a">О нас</a></div>
+
+    <div class="container_1">
+        
+        {% for i in text %}
+        <div class="tags_h1">{{i.tag}}</div>
+        <p class="about">{{i.text}}</p>
+        {% endfor %}
+    </div>
+    <div class="container_1">
+        <div class="images">
+            {% for i in image %}
+                <img class="image" src="{{i.image.url}}" alt="">
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% include 'footer.html' %}

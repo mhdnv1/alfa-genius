@@ -1,0 +1,42 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+
+
+    <div class="container_1"> <a href="{% url 'index' %}" class="a">Главная </a> <img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'services' %}" class="a"> Расписание и оплата</a></div>
+
+
+    <!-- main -->
+    <div class="container_2">
+        
+        {% for i in service_photo %}
+        <img src="{{i.image.url}}" alt="" class="service_img">
+        {% endfor %}
+
+        <h1 class="service_h1">Расписание и оплата</h1>
+        
+        {% for i in service_text %}
+
+        <div class="service_main">
+            <div class="service_main_left">
+                <div class="service_main_left_h5">{{i.service_h1}}</div>
+                <p class="service_main_left_p">{{i.service_text}}</p>
+                <p class="service_main_left_p_1">{{i.service_text_in_red}}</p>
+                <p class="service_main_left_p_2">{{i.service_text_2}}</p>
+            </div>
+            <div class="service_main_right">
+                {% for i in logo %}
+                <img class="lavita_right_img" src="{{i.image.url}}" alt="">
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    
+    
+    {% include 'footer.html' %}
+    

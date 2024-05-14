@@ -1,0 +1,20 @@
+{% load static %}
+
+{% include 'header.html' %}
+<div class="container_1"><img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'index' %}" class="a">Главная </a> </div>
+<div class="container_1">
+    <div class="event_card">
+        <img class="evant_img" src="{{evant.image.url}}" alt="...">
+        <div class="event_body">
+            <h5 class="event_h5">{{evant.events_h1}}</h5>
+            <p class="event_p">
+                {{evant.events_p}}
+            </p>
+            <p style="width: 90vw;"  class="event_p">{{evant.description}}</p>
+        </div>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,93 @@
+{% load static %}
+
+{% include 'header.html' %}
+    <div class="container_1"> <a href="{% url 'index' %}" class="a">Главная </a> <img class="img_a" src="../static/style/IMG/Rectangle 55.png"
+    alt=""> <a href="{% url 'contact' %}" class="a">Контакты</a></div>
+
+
+
+    <div class="container_1">
+        <iframe style="margin-top: 50px;" src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d5031.915269539556!2d34.793992!3d50.906!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d50.906!2d34.793991999999996!5e0!3m2!1sru!2skg!4v1714200160334!5m2!1sru!2skg" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="container_1">
+        <div class="contacts">
+            <div class="contact">
+                <h1 class="contact_h1">Режим работы</h1>
+                {% for i in work_day %}
+                <ul class="contact_ul">
+                    <li class="contact_ul_li">{{i.days}} - {{i.times}}</li>
+                    <li class="contact_ul_li">{{i.dont_work_days}} - НЕ РАБОЧИЙ ДЕНЬ</li>
+                </ul>
+                {% endfor %}
+            </div>
+            <div class="contact">
+                <h1 class="contact_h1">Расписание директора</h1>
+
+                <div class="contact_ul">
+                    <div class="contact_d_h5"><img src="../static/style/IMG/Vector (2).png" alt="" style="margin-right: 9px" class="container_3_sp_all_one_img">Лиговский пр. 133 Е</div>
+                    <div class="contact_d_ul">
+                        
+                        {% for i in grafic %}
+                        <div class="contact_d_ul_li"><img src="../static/style/IMG/Rectangle 55.png" alt="" style="margin-right: 15px;" class="container_3_sp_all_one_img">{{i.day}} {{i.in_which_times}} </div>
+                        {% endfor %}
+                            
+                    </div>
+                </div>
+
+            </div>
+            <div class="contact">
+                <h1 class="contact_h1">Телефоны</h1>
+                <ul class="contact_ul">
+                    
+                    {% for i in phone %}
+                    <a href="" class="contact_ul_li">{{i.phone_number}}
+                    </a>
+                    <br>
+                    {% endfor %}
+                        
+                    
+                </ul>
+            </div>
+            <div class="contact">
+                <h1 class="contact_h1">E-mail</h1>
+                <ul class="contact_ul">
+                    {% for i in email %}
+                    <li class="contact_ul_li_email">{{i.whose_email}} <br><a href="" class="contact_ul_li_email_a">{{i.email_adress}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container_1">
+    <div class="contact-form">
+        <div class="tags_h1">Отправить заявку</div>
+
+        <form method="post" action="#" id="contact-form">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="form-group col-lg-6 col-md-12 col-sm-12 forms">
+                    <input class="form" type="text" name="name" placeholder="Name">
+                    <input class="form" type="text" name="phone" placeholder="Phone">
+                    <input class="form" type="email" name="c_email" placeholder="Email">
+                </div>
+
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <textarea class="massage" name="massage" placeholder="Massage"></textarea>
+                </div>
+
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <button class="theme-btn btn-style-three butt" type="submit" name="submit-form">Отправить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+    
+
+
+
+
+    {% include 'footer.html' %}
+
